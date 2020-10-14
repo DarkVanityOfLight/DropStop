@@ -1,0 +1,62 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.4.20-M1'
+    id 'maven-publish'
+    id "org.hibernate.build.maven-repo-auth" version "3.0.4"
+    id "ru.endlesscode.bukkitgradle" version "0.8.2"
+    id 'com.github.johnrengelman.shadow' version '2.0.4'
+}
+
+group 'com.darkvanityoflight'
+version '1.0-SNAPSHOT'
+description 'Stop certain items from droping after block break'
+
+repositories {
+    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+    mavenCentral()
+    maven {
+        name = "DarkMods"
+        url 'https://repo.repsy.io/mvn/darkvanityoflight/darkmods'
+    }
+    spigot()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+dependencies {
+    compileOnly spigotApi()
+    compileOnly 'com.github.darkvanityoflight:DarkModCore:1.0-SNAPSHOT'
+}
+
+bukkit {
+    version = "1.16.3"
+
+    meta {
+        name = "DropStop"
+        description = 'Stop certain items from droping after block break'
+        main = "com.github.darkvanityoflight.dropstop.DropStop"
+        version = this.version
+        authors = ["DarkVanityOfLight"]
+    }
+
+}
+
+publishing {
+    publications {
+        DarkModCore(MavenPublication) {
+            groupId = 'com.github.darkvanityoflight'
+            artifactId = rootProject.name
+            version = this.version
+
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            name = 'DarkMods'
+            url 'https://repo.repsy.io/mvn/darkvanityoflight/darkmods'
+        }
+    }
+}
