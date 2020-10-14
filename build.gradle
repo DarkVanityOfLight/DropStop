@@ -27,7 +27,7 @@ dependencies {
 
 dependencies {
     compileOnly spigotApi()
-    compileOnly 'com.github.darkvanityoflight:DarkModCore:1.0-SNAPSHOT'
+    compileOnly 'com.github.darkvanityoflight:DarkModCore:1.1-SNAPSHOT'
 }
 
 bukkit {
