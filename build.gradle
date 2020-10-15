@@ -45,7 +45,7 @@ bukkit {
 
 publishing {
     publications {
-        DarkModCore(MavenPublication) {
+        DarkMod(MavenPublication) {
             groupId = 'com.github.darkvanityoflight'
             artifactId = rootProject.name
             version = this.version
