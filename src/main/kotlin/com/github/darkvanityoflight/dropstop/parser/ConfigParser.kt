@@ -1,11 +1,11 @@
 package com.github.darkvanityoflight.dropstop.parser
 
-import com.github.darkvanityoflight.darkmodcore.configparser.ADarkModConfigParser
+import com.github.darkvanityoflight.recraftedcore.configparser.ARecraftedConfigParser
 import org.bukkit.Material
 import org.bukkit.World
 import org.bukkit.configuration.file.FileConfiguration
 
-class ConfigParser(config: FileConfiguration) : ADarkModConfigParser(config) {
+class ConfigParser(config: FileConfiguration) : ARecraftedConfigParser(config) {
     var bannedBlockMap: Map<World.Environment, Set<Material>> = emptyMap()
 
     override fun read() {
