@@ -14,7 +14,7 @@ class ConfigParser(config: FileConfiguration) : ARecraftedConfigParser(config) {
         val bannedMaterialMap : MutableMap<World.Environment, Set<Material>> = mutableMapOf()
         val bannedMaterial: Set<Material> = emptySet()
         for (key in config.getKeys(false)) {
-            if (key in World.Environment.values()) {
+            if (World.Environment.values().any {it.name == key.toUpperCase()}) {
 
                 val bannedBlocksString = config.getStringList(key)
                 if (bannedBlocksString.isNotEmpty()) {
